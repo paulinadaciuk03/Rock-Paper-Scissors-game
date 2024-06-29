@@ -11,6 +11,10 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     ties: 0
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+    hideResultImages(); 
+});
+
 updateScoreElement(); 
 
 function getComputerMove() {
@@ -66,6 +70,10 @@ function playGame(playerMove) {
     computerPickElement.innerHTML = 'Computer';
     document.querySelector('.js-player-move').innerHTML = `${playerMove}`;
     document.querySelector('.js-computer-move').innerHTML = `${computerMove}`;
+    document.querySelector('.js-player-move-img').src = `/images/${playerMove}.png`
+    document.querySelector('.js-computer-move-img').src = `/images/${computerMove}.png`
+    
+    showResultImages();
 
     startTextElement.innerHTML = 'Press again to keep playing!';
 
@@ -93,7 +101,8 @@ function resetScore() {
     computerPickElement.innerHTML = '';
     document.querySelector('.js-player-move').innerHTML = '';
     document.querySelector('.js-computer-move').innerHTML = '';
-
+    
+    hideResultImages();
 }
 
 function changeResultColor(){
@@ -113,3 +122,13 @@ function changeResultColor(){
 }
 
 
+
+function hideResultImages(){
+    document.querySelector('.js-computer-move-img').style.display = 'none';
+    document.querySelector('.js-player-move-img').style.display = 'none';
+}
+
+function showResultImages(){
+    document.querySelector('.js-computer-move-img').style.display='block';
+    document.querySelector('.js-player-move-img').style.display='block';
+}

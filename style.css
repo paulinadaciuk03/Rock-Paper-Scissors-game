@@ -144,9 +144,20 @@
     font-size: 30px;
 }
 
+
 .js-picked-player, .js-picked-computer{
     font-size: 15px;
     font-weight: 300;
     margin-top: 20px;
 }
 
+.js-picked-player{
+    color: blue;
+    font-weight: bold;
+}
+
+.js-player-move-img, .js-computer-move-img{
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
