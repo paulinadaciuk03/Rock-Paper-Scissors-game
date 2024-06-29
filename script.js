@@ -54,6 +54,7 @@ function playGame(playerMove) {
             result.innerHTML = 'You win!';
         }
     }
+    /*shows result*/ 
     if (result.innerHTML === "You win!") {
         score.wins++;
     } else if (result.innerHTML === "You lose!") {
@@ -66,6 +67,7 @@ function playGame(playerMove) {
 
     updateScoreElement(); 
 
+    /*html to show results*/
     playerPickElement.innerHTML = 'You';
     computerPickElement.innerHTML = 'Computer';
     document.querySelector('.js-player-move').innerHTML = `${playerMove}`;
@@ -75,18 +77,21 @@ function playGame(playerMove) {
     
     showResultImages();
 
+    /*resets the text on press to play*/
     startTextElement.innerHTML = 'Press again to keep playing!';
 
     changeResultColor();
 }
 
 function updateScoreElement() {
+    /*updates score*/ 
     document.querySelector('.js-score-wins').innerHTML = `${score.wins}`;
     document.querySelector('.js-score-losses').innerHTML = `${score.losses}`;
     document.querySelector('.js-score-ties').innerHTML = `${score.ties}`;
 }
 
 function resetScore() {
+    /*resets score*/
     score.wins = 0;
     score.losses = 0;
     score.ties = 0;
@@ -94,18 +99,19 @@ function resetScore() {
     scoreResetElement.innerHTML = 'Score reset!';
     updateScoreElement();
     
+    /*resets the html elements as well*/
     document.querySelector('.js-moves').innerHTML = '';
     result.innerHTML = '';
     startTextElement.innerHTML = 'Press on a button to start playing!';
     playerPickElement.innerHTML = '';
     computerPickElement.innerHTML = '';
     document.querySelector('.js-player-move').innerHTML = '';
-    document.querySelector('.js-computer-move').innerHTML = '';
-    
+    document.querySelector('.js-computer-move').innerHTML = '';   
     hideResultImages();
 }
 
 function changeResultColor(){
+    /*changes the color of the result title depending on a win a tie or a loss*/
     if (result.innerHTML === 'You win!'){
         result.classList.add('result-win');
         result.classList.remove('result-lose');
@@ -124,11 +130,13 @@ function changeResultColor(){
 
 
 function hideResultImages(){
+    /*hides images of moves picked*/
     document.querySelector('.js-computer-move-img').style.display = 'none';
     document.querySelector('.js-player-move-img').style.display = 'none';
 }
 
 function showResultImages(){
+    /*shows images of moves picked*/
     document.querySelector('.js-computer-move-img').style.display='block';
     document.querySelector('.js-player-move-img').style.display='block';
 }
